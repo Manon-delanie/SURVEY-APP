@@ -8,6 +8,7 @@ import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 })
 export class BiblePage implements OnInit {
 
+  verses: any[] = [];
   constructor(private http : HTTP) {}
 
   ngOnInit() {
@@ -18,6 +19,31 @@ export class BiblePage implements OnInit {
       console.log(data.status);
       console.log(data.data); // data received by server
       console.log(data.headers);
+
+      data.data = JSON.parse(data.data);
+
+      let versesText: string = data.data.text;
+
+      console.log("verses: "+versesText);
+
+      for(let i = 2; i <= 36; i++){
+        console.log(i);
+        let str: string[] = versesText.split("("+i+")");
+
+        let value: string = str[0].replace(/^\(\d+\)\s*/, '');
+
+        this.verses.push(value);
+
+
+        if(i == 36) {
+          let value: string = str[1].replace(/^\(\d+\)\s*/, '');
+          this.verses.push(value);
+        }
+
+        versesText =  str[1];
+      }
+
+      console.log(this.verses[0]+" "+this.verses[1]);
 
     })
     .catch(error => {

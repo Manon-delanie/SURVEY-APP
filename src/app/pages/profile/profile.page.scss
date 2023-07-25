@@ -12,7 +12,10 @@ ion-toolbar {
     margin: 0 auto;
 
     .header {
-        height: 200px;
+        height: 180px;
+        background-color: #dadedf;
+        width: 100%;
+        padding-top: 1px;
 
         .avatar {
             width: 160px;
@@ -24,8 +27,8 @@ ion-toolbar {
                 display: block;
                 border-radius: 50%;
                 position: absolute;
-                bottom: calc(-1*(80px + 4px));
-                border: 8px solid #6495ED;
+                bottom: calc(-1*(80px + 10px));
+                border: white solid 8px;
                 background-color: #fff;
             }
         }
@@ -33,7 +36,7 @@ ion-toolbar {
 }
 
 .card-body {
-    margin-top: 80px;
+    margin-top: 40px;
     background-color: #ffffff;
     padding: 30px;
     height: 506px;

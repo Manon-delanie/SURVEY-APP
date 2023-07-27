@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'bible2',
+    loadChildren: () => import('./pages/bible2/bible2.module').then( m => m.Bible2PageModule)
   }
 ];
 
